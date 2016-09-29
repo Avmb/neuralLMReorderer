@@ -8,6 +8,8 @@ Note: this is very experimental research code and is not particularly easy to us
 
 Usage:
 
+0. Prepare your corpus in the CoNNL format.
+
 1. Edit reordererState.py to make sure to import the proper feature extractor (Base-RNN and Base-GRU models can use the same feature extractors, while the Fragment-RNN model needs its own extractor denoted by the "_path" suffix).
 
-2. Run 
+2. Run preprocessTrain_base.py or preprocessTrain_path.py (depending on which kind of model you are using) to generate a feature dictionary from the training corpus

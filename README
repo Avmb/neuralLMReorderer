@@ -8,8 +8,22 @@ Note: this is very experimental research code and is not particularly easy to us
 
 Usage:
 
-0. Prepare your corpus in the CoNNL format.
+To train:
 
-1. Edit reordererState.py to make sure to import the proper feature extractor (Base-RNN and Base-GRU models can use the same feature extractors, while the Fragment-RNN model needs its own extractor denoted by the "_path" suffix).
+0. Parse your source corpus in the CoNNL format. Prepare your symmetrized alignments in the Moses format
 
-2. Run preprocessTrain_base.py or preprocessTrain_path.py (depending on which kind of model you are using) to generate a feature dictionary from the training corpus
+1. Run depHintFromAlignmentOnaPap.py to add reordering information to your parse tree
+
+2. Edit reordererState.py to make sure to import the proper feature extractor (Base-RNN and Base-GRU models can use the same feature extractors, while the Fragment-RNN model needs its own extractor denoted by the "_path" suffix).
+
+3. Run preprocessTrain_base.py or preprocessTrain_path.py (depending on which kind of model you are using) to generate a feature dictionary from the training corpus
+
+4. Edit one of the trainer_X.py scripts to make sure it uses the proper model type and hyperparameters and run it
+
+To reorder:
+
+0. Parse your source corpus in the CoNNL format.
+
+1. Edit one of the decoder_X.py scripts to make sure it uses the same model type and hyperparameters as the trainer_X.py and run it.
+
+2. Run unparse-by-hints.py to extract the words in the permuted order from the decoded parse tree

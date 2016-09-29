@@ -1,0 +1,13 @@
+Non-projective Dependency-based Pre-Reordering with Recurrent Neural Network for Machine Translation
+
+Perform sentence reordering as a preprocessing step for machine translation using dependency trees and recurrent neural networks.
+
+Paper: Antonio Valerio Miceli Barone and Giuseppe Attardi. Non-projective Dependency-based Pre-Reordering with Recurrent Neural Network for Machine Translation. Association for Computational Linguistics, Stroudsburg, PA, USA. 2015. http://www.di.unipi.it/~miceli/rnnrm-cameraready.pdf
+
+Note: this is very experimental research code and is not particularly easy to use or documented.
+
+Usage:
+
+1. Edit reordererState.py to make sure to import the proper feature extractor (Base-RNN and Base-GRU models can use the same feature extractors, while the Fragment-RNN model needs its own extractor denoted by the "_path" suffix).
+
+2. Run 
